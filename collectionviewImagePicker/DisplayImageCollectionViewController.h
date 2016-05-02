@@ -8,9 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol DisplayImageCollectionViewControllerDelegate;
+
+
 @interface DisplayImageCollectionViewController : UICollectionViewController
 
+@property (weak) id<DisplayImageCollectionViewControllerDelegate> delegate;
 
 @property (nonatomic, retain) NSMutableArray * arrImages;
+
+@end
+
+
+@protocol DisplayImageCollectionViewControllerDelegate
+
+- (void)displayImageCollectionViewController:(DisplayImageCollectionViewController*)controller didProduceCompositeImage:(UIImage*)image;
 
 @end
